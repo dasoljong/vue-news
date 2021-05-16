@@ -30,12 +30,12 @@ export const router = new VueRouter({
       component: JobsView
     },
     {
-      path: "/item",
-      component: ItemView
+      path: "/user/:userName",
+      component: UserView
     },
     {
-      path: "/user",
-      component: UserView
+      path: "/item",
+      component: ItemView
     }
   ]
 });
