@@ -30,5 +30,4 @@ function fetchItem(id) {
   const url = `${config.baseUrl}item/${id}.json`;
   return axios.get(url);
 }
-
 export { fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo, fetchItem };
