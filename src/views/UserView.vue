@@ -11,11 +11,11 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["fetchedUser"]),
+    ...mapGetters(["fetchedUser"])
   },
   created() {
-    const userId = this.$route.params.userName;
-    this.$store.dispatch("FETCH_USER", userId);
+    const userName = this.$route.params.userName;
+    this.$store.dispatch("FETCH_USER", userName);
   }
 };
 </script>
