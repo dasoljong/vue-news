@@ -1,4 +1,10 @@
-import { fetchAskList, fetchJobsList, fetchNewsList } from "@/api";
+import {
+  fetchAskList,
+  fetchJobsList,
+  fetchNewsList,
+  fetchUserInfo,
+  fetchItemInfo
+} from "@/api";
 
 export default {
   FETCH_NEWS(context) {
@@ -23,6 +29,22 @@ export default {
       .then(response => {
         console.log(response);
         context.commit("SET_ASK", response.data);
+      })
+      .catch(error => console.log(error));
+  },
+  FETCH_USER({ commit }, user) {
+    fetchUserInfo(user)
+      .then(({ data }) => {
+        console.log(data);
+        commit("SET_USER", data);
+      })
+      .catch(error => console.log(error));
+  },
+  FETCH_ITEM({ commit }, id) {
+    fetchItemInfo(id)
+      .then(({ data }) => {
+        console.log(data);
+        commit("SET_ITEM", data);
       })
       .catch(error => console.log(error));
   }
