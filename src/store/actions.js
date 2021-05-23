@@ -22,6 +22,7 @@ export default {
     fetchJobsList()
       .then(({ data }) => {
         commit("SET_JOBS", data);
+        return data;
       })
       .catch(err => console.log(err));
   },
@@ -30,6 +31,7 @@ export default {
       .then(response => {
         console.log(response);
         context.commit("SET_ASK", response.data);
+        return response;
       })
       .catch(error => console.log(error));
   },
