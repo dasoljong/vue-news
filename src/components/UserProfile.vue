@@ -5,19 +5,22 @@
         <i class="fas fa-user"></i>
       </div>
       <div class="user-description">
-        <router-link v-bind:to="`/user/${fetchedItem.user}`">
-<!--          {{fetchedItem.user }}-->
-        </router-link>
+        <slot name="username"></slot>
         <div class="time">
-<!--          {{ fetchedItem.time_ago }}-->
+          <slot name="time"></slot>
         </div>
       </div>
+      <slot name="karma"></slot>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    info: Object
+  }
+};
 </script>
 
 <style scoped>

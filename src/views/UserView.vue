@@ -1,12 +1,16 @@
 <template>
   <div>
-    <user-profile></user-profile>
-<!--    <p>name : {{ userInfo.id }}</p>-->
-<!--    <p v-if="userInfo.about">-->
-<!--      about : {{ userInfo.about }}-->
-<!--    </p>-->
-<!--    <p>karma : {{ userInfo.karma }}</p>-->
-<!--    <p>created : {{ userInfo.created }}</p>-->
+    <user-profile :info="userInfo">
+      <div slot="username">{{ userInfo.id }}</div>
+      <spand slot="time">{{ 'Joined ' +  userInfo.created }}</spand>
+      <span slot="karma">{{ userInfo.karma }}</span>
+    </user-profile>
+    <!--    <p>name : {{ userInfo.id }}</p>-->
+    <!--    <p v-if="userInfo.about">-->
+    <!--      about : {{ userInfo.about }}-->
+    <!--    </p>-->
+    <!--    <p>karma : {{ userInfo.karma }}</p>-->
+    <!--    <p>created : {{ userInfo.created }}</p>-->
   </div>
 </template>
 
@@ -15,10 +19,10 @@ import UserProfile from "@/components/UserProfile.vue";
 
 export default {
   components: {
-    UserProfile,
+    UserProfile
   },
-  computed:{
-    userInfo(){
+  computed: {
+    userInfo() {
       return this.$store.state.user;
     }
   },

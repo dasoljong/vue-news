@@ -14,6 +14,7 @@ export default {
         // state.news 접근 안됨.
         // "SET_NEWS" 함수를 실행하고 성공적으로 받아온 response를 보내줌.
         context.commit("SET_NEWS", response.data);
+        return response;
       })
       .catch(err => console.log(err));
   },
